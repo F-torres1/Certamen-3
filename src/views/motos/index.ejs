@@ -5,13 +5,18 @@
 </head>
 <body>
     <h1>Lista de Motos</h1>
-    <a href="/api/motos/new">Agregar Nueva Moto</a>
+    <% if (locals.session.isAuthenticated) { %>
+        <a href="/motos/new">Agregar Nueva Moto</a>
+    <% } %>
     <ul>
-        <% motos.forEach(moto => { %>
-            <li>
-                <a href="/api/motos/<%= moto.id %>"><%= moto.marca %> - <%= moto.modelo %></a>
-            </li>
-        <% }) %>
+
+        <% if (locals.motos) { %>
+            <% locals.motos.forEach(moto => { %>
+                <li>
+                    <a href="/motos/<%= moto.id %>"><%= moto.marca %> - <%= moto.modelo %></a>
+                </li>
+            <% }) %>
+        <% } %>
     </ul>
 </body>
 </html>

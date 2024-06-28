@@ -1,13 +1,14 @@
 const express = require('express');
 const router = express.Router();
 const authController = require('../controllers/authenticationController');
+const { validateInput } = require('../middlewares/validateInput');
 
-// router.get('/', authController.getAllMotos);
-router.get('/login', authController.login);
+const { userSchema } = require('../schemas/user');
+
+
+router.get('/login',  authController.login);
 router.get('/register', authController.register);
-// router.post('/', authController.createMoto);
-// router.get('/:id/edit', authController.updateMotoForm);
-router.post('/login', authController.sendLogin);
-router.post('/register', authController.sendRegister);
+router.post('/login', validateInput(userSchema), authController.sendLogin);
+router.post('/register', validateInput(userSchema), authController.sendRegister);
 
 module.exports = router;

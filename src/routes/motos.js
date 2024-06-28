@@ -2,8 +2,10 @@ const express = require('express');
 const router = express.Router();
 const motosController = require('../controllers/motosController');
 
-router.get('/', motosController.getAllMotos);
-router.get('/new', motosController.createMotoForm);
+const { soloAdmin } = require('../middlewares/validateSession');
+
+router.get('/',  motosController.getAllMotos);
+router.get('/new',  motosController.createMotoForm);
 router.get('/:id', motosController.getMotoById);
 router.post('/', motosController.createMoto);
 router.get('/:id/edit', motosController.updateMotoForm);

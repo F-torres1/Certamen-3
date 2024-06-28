@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Iniciar Sesion</title>
-    <link rel="stylesheet" href="../../public/style.css">
-   <script src="../../public/login.js" defer></script>
+
   
 </head>
 <body>
@@ -13,15 +12,15 @@
         <div class="form-container">
             <h1> Iniciar Sesion</h1>
             <p> Ingresa tus credenciales para acceder al area de administracion</p>
-            <form id="login-form">
-                <label for="user" class="sr-only">User</label>
-                <input type="text" name="user" id="user" placeholder="Nombre de usuario">
+            <form id="login-form"  action="/auth/login" method="post">
+                <label for="user" class="sr-only">Correo</label>
+                <input type="text" name="email" id="email" placeholder="correo" required>
                 <label for="password" class="sr-only">Password</label>
-                <input type="password" name="password" id="password" placeholder="Contraseña">
+                <input type="password" name="password" id="password" placeholder="Contraseña" required>
                 <button type="submit">Iniciar Sesion</button>
                 <p class="error escondido">Error al Iniciar Sesion</p>
             </form>
-            <p>¿No tienes cuenta? - <a href="/api/auth/register"> Registrate </a></p>
+            <p>¿No tienes cuenta? - <a href="/auth/register"> Registrate </a></p>
         </div>
 
     </main>
