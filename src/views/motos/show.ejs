@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= moto.marca %> - <%= moto.modelo %></title>
+</head>
+<body>
+    <h1><%= moto.marca %> - <%= moto.modelo %></h1>
+    <p>Año: <%= moto.año %></p>
+    <p>Motor: <%= moto.motor %></p>
+    <p>Tipo: <%= moto.tipo %></p>
+    <p>Precio: <%= moto.precio %></p>
+    <p>Características: <%= moto.características.join(', ') %></p>
+    <a href="/api/motos/<%= moto.id %>/edit">Editar</a>
+    <form action="/api/motos/<%= moto.id %>/delete" method="POST" style="display:inline;">
+        <button type="submit">Eliminar</button>
+    </form>
+    <a href="/api/motos">Volver</a>
+</body>
+</html>

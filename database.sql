@@ -1,0 +1,5 @@
+CREATE DATABASE motos;
+
+CREATE USER 'loc1'@'localhost' IDENTIFIED BY '123456';
+GRANT ALL PRIVILEGES ON motos.* TO 'loc1'@'localhost';
+FLUSH PRIVILEGES;
